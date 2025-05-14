@@ -1,11 +1,15 @@
-import { PrismaAdapter } from "@auth/prisma-adapter"
+import PostgresAdapter from "@auth/pg-adapter"
+import { Pool } from "@neondatabase/serverless"
 import NextAuth from "next-auth"
 import GoogleProvider from "next-auth/providers/google"
-import { prisma } from "./prisma"
- 
+
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL,
+})
+
 export const authOptions = NextAuth( {
   // Create a `Pool` inside the request handler.
-    adapter: PrismaAdapter(prisma),
+    adapter: PostgresAdapter(pool),
     providers: [
       GoogleProvider({
         clientId: process.env.GOOGLE_CLIENT_ID as string,
