@@ -32,7 +32,7 @@ export default function LoginPage() {
               />
               <path d="M1 1h22v22H1z" fill="none" />
             </svg>
-            Se connecter ou s'inscrire avec Google
+            Se connecter ou s&apos;inscrire avec Google
           </Button>
         </CardContent>
       </Card>
