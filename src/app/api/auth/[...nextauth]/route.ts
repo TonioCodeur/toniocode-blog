@@ -1,2 +1,6 @@
-import { handlers } from "@/lib/auth"; // Referring to the auth.ts we just created
-export const { GET, POST } = handlers
+import { authOptions } from "@/lib/auth";
+import NextAuth from "next-auth/next";
+
+// Initialisation du handler directement dans le fichier route
+const handler = NextAuth(authOptions)
+export { handler as GET, handler as POST };
